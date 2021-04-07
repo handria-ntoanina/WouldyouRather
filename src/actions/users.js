@@ -22,7 +22,8 @@ export const addAnsweredPolls = (userId, pollId, answer) => {
 	return {
 		type: ADD_ANSWERED_POLLS,
 		userId,
-		pollId
+		pollId,
+		answer
 	}	
 }
 

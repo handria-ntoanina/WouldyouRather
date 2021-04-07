@@ -53,12 +53,16 @@ export const handleAddPoll = (optionOneText, optionTwoText) => (dispatch, getSta
 }
 
 export const handleAnswerPoll = (qid, answer) => (dispatch, getState) => {
-	const { authedUser } = getState()
+	const { authedUser, users } = getState()
 	const data = {
 			authedUser,
 			qid,
 			answer
 		}
+	if( users[authedUser].answers.hasOwnProperty(qid) ){
+		console.log(authedUser + ' had already participated to this poll', authedUser)
+		return;
+	}
 	dispatch(answerPoll(data))
 	dispatch(addAnsweredPolls(authedUser, qid, answer))
 	return _saveQuestionAnswer(data).catch((e) => {
