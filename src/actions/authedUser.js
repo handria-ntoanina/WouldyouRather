@@ -1,5 +1,5 @@
-export const LOGIN='LOGIN'
-export const LOGOUT='LOGOUT'
+export const LOGIN='AUTHEDUSER/LOGIN'
+export const LOGOUT='AUTHEDUSER/LOGOUT'
 
 export const login = (id) => {
 	return {
