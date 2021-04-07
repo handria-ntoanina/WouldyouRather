@@ -1,8 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import LoadingBar from 'react-redux-loading'
 
 class App extends Component {
   render(){
-    return (<div>Would you Rather?</div>)
+    return (
+    	<Fragment>
+    		<LoadingBar/>
+    		<div>Would you Rather?</div>
+    	</Fragment>)
   }
 }
 
