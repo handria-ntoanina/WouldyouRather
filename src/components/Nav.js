@@ -35,7 +35,7 @@ class Nav extends Component {
 					<Button color="inherit" component={NavLink} to='/newPoll' exact activeClassName={classes.active}>New Question</Button>
 					<Button color="inherit" component={NavLink} to='/leaderBoard' exact activeClassName={classes.active}>Leader Board</Button>
 					<span className={classes.filler}/>
-					<Typography component="p" variant="avatarLetter">Hello {authedUser.name}</Typography>
+					<Typography component="p" variant="caption">Hello {authedUser.name}</Typography>
 					<Avatar alt={authedUser.name} src={authedUser.avatarURL} className={classes.avatar}/>
 					<Button color="inherit" onClick={this.handleLogout}>Logout</Button>
 				</Toolbar>

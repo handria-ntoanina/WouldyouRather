@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import LoadingBar from 'react-redux-loading'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Nav from './Nav'
 import Login from './Login'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-
+import Home from './Home'
+import LeaderBoard from './LeaderBoard'
+import NewPoll from './NewPoll'
 
 const theme = createMuiTheme({
     palette: {
@@ -30,7 +32,11 @@ class App extends Component {
             <Container component="main" maxWidth="md">
                 <Paper variant="outlined">
                     <Nav />
-                    <div>Would you Rather?</div>
+                    <Container maxWidth="sm">
+                        <Route path="/" exact component={Home}></Route>
+                        <Route path="/newPoll" exact component={NewPoll}></Route>
+                        <Route path="/leaderBoard" exact component={LeaderBoard}></Route>
+                    </Container>
                 </Paper>
             </Container>)
     return (
