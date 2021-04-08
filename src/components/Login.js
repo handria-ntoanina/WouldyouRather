@@ -10,6 +10,7 @@ import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl'
 import InputLabel from '@material-ui/core/InputLabel'
+import Container from '@material-ui/core/Container'
 import { login } from '../actions/authedUser'
 
 const styles = (theme) => ({
@@ -49,11 +50,13 @@ class Login extends Component {
 	}
 	render(){
     	const { classes, users } = this.props;
-		return (<Paper variant="outlined" className={classes.paper}>
+		return (
+        <Container component="main" maxWidth="sm">
+			<Paper variant="outlined" className={classes.paper}>
 		        	<Typography component="h1" variant="h4">
           				Would you Rather?
         			</Typography>
-        			<img src={process.env.PUBLIC_URL + '/login.jpg'} width="100%"/>
+        			<img src={process.env.PUBLIC_URL + '/login.jpg'} alt="Voting" width="100%"/>
 				 	<Avatar className={classes.avatar}>
 		          		<LockOutlinedIcon />
 		        	</Avatar>
@@ -86,7 +89,8 @@ class Login extends Component {
 							Sign In
 						</Button>
 					</form>
-        		</Paper>)
+        		</Paper>
+        	</Container>)
 	}
 }
 

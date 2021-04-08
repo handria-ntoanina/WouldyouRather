@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import LoadingBar from 'react-redux-loading'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
@@ -6,6 +6,20 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Nav from './Nav'
 import Login from './Login'
 import Container from '@material-ui/core/Container'
+import Paper from '@material-ui/core/Paper'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: "#d4e157"
+        },
+        secondary: {
+            main: "#9e9e9e"
+        }
+    }
+})
 
 class App extends Component {
 	componentDidMount(){
@@ -13,13 +27,15 @@ class App extends Component {
 	}
   render(){
     const content = (
-            <Fragment>
-                <Nav />
-                <div>Would you Rather?</div>
-            </Fragment>)
+            <Container component="main" maxWidth="md">
+                <Paper variant="outlined">
+                    <Nav />
+                    <div>Would you Rather?</div>
+                </Paper>
+            </Container>)
     return (
         <Router>
-        	<Container component="main" maxWidth="sm">
+            <ThemeProvider theme={theme}>
         		<LoadingBar/>
         		{this.props.loading ? 
         			<div>Loading!</div>
@@ -27,7 +43,7 @@ class App extends Component {
         			this.props.authedUser ?
                     content : <Login/>
         		}
-        	</Container>
+            </ThemeProvider>
         </Router>)
   }
 }
