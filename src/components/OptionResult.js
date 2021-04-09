@@ -29,7 +29,7 @@ class OptionResult extends Component {
 					<Typography component='h3' variant='subtitle1' gutterBottom>Would you Rather { option.text }?
 						{choice && ' (Your choice)'}
 					</Typography>
-					<LinearProgress variant='determinate' value={progress}/>
+					<LinearProgress variant='determinate' value={progress} color={choice ? 'primary' : 'secondary'}/>
 					<Typography className={classes.summary}>{count} out of {total} votes</Typography>
 		</Paper>)
 	}
