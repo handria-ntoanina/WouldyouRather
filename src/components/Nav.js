@@ -29,7 +29,7 @@ class Nav extends Component {
 	render(){
 		const { classes, authedUser } = this.props
 		return (
-			<AppBar position="sticky" className={classes.root}>
+			<AppBar position="sticky">
 				<Toolbar>
 					<Button color="inherit" component={NavLink} to='/' exact activeClassName={classes.active}>Home</Button>
 					<Button color="inherit" component={NavLink} to='/newPoll' exact activeClassName={classes.active}>New Question</Button>

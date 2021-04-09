@@ -1,11 +1,9 @@
 /*This was taken from https://material-ui.com/components/tabs/*/
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 
 class TabPanel extends Component {
-  propTypes = {
+  static propTypes = {
     children: PropTypes.node,
     index: PropTypes.any.isRequired,
     value: PropTypes.any.isRequired,
@@ -22,9 +20,9 @@ class TabPanel extends Component {
         {...other}
       >
         {value === index && (
-          <Box p={3}>
-            <Typography>{children}</Typography>
-          </Box>
+          <Fragment>
+            {children}
+          </Fragment>
         )}
       </div>
     )

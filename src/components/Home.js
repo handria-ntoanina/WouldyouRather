@@ -22,27 +22,27 @@ class Home extends Component {
 		const { value } = this.state
 		const { unanswered, answered } = this.props
 		return (<Fragment>
-			<Tabs value={value} 
-				onChange={this.handleChange}
-				aria-label="Choose between unanswered and answered poll"
-				centered>
-				<Tab value="unanswered"
-					label="Unanswered"
-					wrapped
-					{...this.a11yProps('unanswered')}/>
-				<Tab value="answered"
-					label="Answered"
-					wrapped
-					{...this.a11yProps('answered')}/>
-			</Tabs>
+				<Tabs value={value} 
+					onChange={this.handleChange}
+					aria-label="Choose between unanswered and answered poll"
+					centered>
+					<Tab value="unanswered"
+						label="Unanswered"
+						wrapped
+						{...this.a11yProps('unanswered')}/>
+					<Tab value="answered"
+						label="Answered"
+						wrapped
+						{...this.a11yProps('answered')}/>
+				</Tabs>
 			<TabPanel value={value} index='unanswered'>
 				{ unanswered.map((id) =>(
-					<PollItem pollId={id}></PollItem>
+					<PollItem pollId={id} key={id}></PollItem>
 					)) }
 			</TabPanel>
 			<TabPanel value={value} index='answered'>
 				{ answered.map((id) =>(
-					<PollItem pollId={id}></PollItem>
+					<PollItem pollId={id} key={id}></PollItem>
 					)) }
 			</TabPanel>
 		</Fragment>)
