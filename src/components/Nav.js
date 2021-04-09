@@ -32,8 +32,8 @@ class Nav extends Component {
 			<AppBar position="sticky">
 				<Toolbar>
 					<Button color="inherit" component={NavLink} to='/' exact activeClassName={classes.active}>Home</Button>
-					<Button color="inherit" component={NavLink} to='/newPoll' exact activeClassName={classes.active}>New Question</Button>
-					<Button color="inherit" component={NavLink} to='/leaderBoard' exact activeClassName={classes.active}>Leader Board</Button>
+					<Button color="inherit" component={NavLink} to='/add' exact activeClassName={classes.active}>New Question</Button>
+					<Button color="inherit" component={NavLink} to='/leaderboard' exact activeClassName={classes.active}>Leader Board</Button>
 					<span className={classes.filler}/>
 					<Typography component="p" variant="caption">Hello {authedUser.name}</Typography>
 					<Avatar alt={authedUser.name} src={authedUser.avatarURL} className={classes.avatar}/>

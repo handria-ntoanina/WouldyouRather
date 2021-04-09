@@ -43,8 +43,8 @@ class App extends Component {
                     <Nav />
                     <Container maxWidth="sm" className={classes.content}>
                         <Route path="/" exact component={Home}></Route>
-                        <Route path="/newPoll" exact component={NewPoll}></Route>
-                        <Route path="/leaderBoard" exact component={LeaderBoard}></Route>
+                        <Route path="/add" exact component={NewPoll}></Route>
+                        <Route path="/leaderboard" exact component={LeaderBoard}></Route>
                         <Route path="/questions/:id" exact component={PollPage}></Route>
                     </Container>
                 </Paper>
