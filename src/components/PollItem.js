@@ -13,8 +13,8 @@ const styles = (theme) => ({
     marginBottom: theme.spacing(1)
   },
   avatar: {
-  	width: theme.spacing(7),
-  	height: theme.spacing(7)
+    width: theme.spacing(7),
+    height: theme.spacing(7)
   }
 })
 

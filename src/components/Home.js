@@ -51,7 +51,6 @@ class Home extends Component {
 
 const mapStateToProps = ({ polls, authedUser, users }) => {
 	const currentUser = users[authedUser]
-	console.log(currentUser)
 	return {
 		unanswered: Object.keys(polls).filter((id) => 
 			!Object.keys(currentUser.answers).includes(id)),
