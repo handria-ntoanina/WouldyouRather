@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles'
 import { handleAnswerPoll } from '../actions/polls'
 import Card from '@material-ui/core/Card'
@@ -90,7 +90,9 @@ class PollVote extends Component {
 }
 
 const PollPage = (props) => {
-	const { answered } = props
+	const { answered, notFound } = props
+	if(notFound)
+		return (<Redirect to="/notFound"/>)
 	return (<div>
 			{answered ? <PollResult {...props}/> 
 				: <PollVote {...props}/>}
@@ -99,6 +101,12 @@ const PollPage = (props) => {
 
 const mapStateToProps = ({polls, authedUser, users}, ownProps) => {
 	const { id } = ownProps.match.params
+	const notFound = !polls[id]
+	if(notFound)
+		return {
+			notFound: true,
+			...ownProps
+		}
 	return {
 		poll: polls[id],
 		answered: polls[id].optionOne.votes.includes(authedUser) ||

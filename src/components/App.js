@@ -3,15 +3,16 @@ import LoadingBar from 'react-redux-loading'
 import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles'
 import Nav from './Nav'
 import Login from './Login'
 import LeaderBoard from './LeaderBoard'
 import NewPoll from './NewPoll'
 import PollPage from './PollPage'
+import NotFound from './NotFound'
+import Home from './Home'
 import Container from '@material-ui/core/Container'
 import Paper from '@material-ui/core/Paper'
-import { createMuiTheme, ThemeProvider, withStyles } from '@material-ui/core/styles'
-import Home from './Home'
 
 const theme = createMuiTheme({
     palette: {
@@ -42,10 +43,11 @@ class App extends Component {
                 <Paper variant="outlined">
                     <Nav />
                     <Container maxWidth="sm" className={classes.content}>
-                        <Route path="/" exact component={Home}></Route>
-                        <Route path="/add" exact component={NewPoll}></Route>
-                        <Route path="/leaderboard" exact component={LeaderBoard}></Route>
-                        <Route path="/questions/:id" exact component={PollPage}></Route>
+                        <Route path="/" exact component={Home}/>
+                        <Route path="/add" exact component={NewPoll}/>
+                        <Route path="/leaderboard" exact component={LeaderBoard}/>
+                        <Route path="/questions/:id" exact component={PollPage}/>
+                        <Route path="/notFound" exact component={NotFound}/>
                     </Container>
                 </Paper>
             </Container>)

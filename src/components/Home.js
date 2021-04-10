@@ -53,9 +53,11 @@ const mapStateToProps = ({ polls, authedUser, users }) => {
 	const currentUser = users[authedUser]
 	return {
 		unanswered: Object.keys(polls).filter((id) => 
-			!Object.keys(currentUser.answers).includes(id)),
+			!Object.keys(currentUser.answers).includes(id))
+			.sort((a, b) => polls[b].timestamp - polls[a].timestamp),
 		answered: Object.keys(polls).filter((id) => 
 			Object.keys(currentUser.answers).includes(id))
+			.sort((a, b) => polls[b].timestamp - polls[a].timestamp)
 	}
 }
 

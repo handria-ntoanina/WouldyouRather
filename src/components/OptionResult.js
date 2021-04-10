@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import Paper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
-import LinearProgress from '@material-ui/core/LinearProgress'
+import LinearProgressWithLabel from './LinearProgressWithLabel'
 
 const styles = (theme) => ({
   paper: {
@@ -29,7 +29,7 @@ class OptionResult extends Component {
 					<Typography component='h3' variant='subtitle1' gutterBottom>Would you Rather { option.text }?
 						{choice && ' (Your choice)'}
 					</Typography>
-					<LinearProgress variant='determinate' value={progress} color={choice ? 'primary' : 'secondary'}/>
+					<LinearProgressWithLabel variant='determinate' value={progress} color={choice ? 'primary' : 'secondary'}/>
 					<Typography className={classes.summary}>{count} out of {total} votes</Typography>
 		</Paper>)
 	}
